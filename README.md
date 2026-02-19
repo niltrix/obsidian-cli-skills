@@ -37,27 +37,8 @@ Obsidian CLI 접근 가능 여부를 확인하세요:
 
 ## 설치
 
-세 가지 설치 방법 중 하나를 선택하세요:
-
-### 방법 1: 로컬 Marketplace (개발용 권장)
-
 ```bash
-claude plugin marketplace add /path/to/obsidian-skills
-claude plugin install obsidian-skills
-```
-
-### 방법 2: 세션 전용 로딩
-
-현재 세션에만 plugin을 로드하며 영구적으로 설치하지 않습니다:
-
-```bash
-claude --plugin-dir /path/to/obsidian-skills
-```
-
-### 방법 3: GitHub 설치 (공유용)
-
-```bash
-claude plugin marketplace add github:bjlee/obsidian-skills
+claude plugin marketplace add github:niltrix/obsidian-cli-skills
 claude plugin install obsidian-skills
 ```
 
