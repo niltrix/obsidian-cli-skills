@@ -171,6 +171,8 @@ $OBS files vault=VAULT_NAME folder="AI-Projects/PROJECT_NAME"
 
 Report the created structure to the user.
 
+> **CLI Reference**: The Obsidian CLI has no `update` command. To modify files later, use `append` for adding content, `prepend` for inserting at top, `property:set` for frontmatter properties, or `create` with `overwrite` flag for full content replacement.
+
 ## Output
 
 After successful initialization, display:

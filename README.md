@@ -607,6 +607,20 @@ vault가 표시되지 않으면 먼저 Obsidian 데스크탑 앱을 열어주세
 
 Obsidian에서 경로는 대소문자를 구분합니다.
 
+### CLI 명령어 참고
+
+Obsidian CLI에는 `update` 명령이 없습니다. 파일 내용을 수정하려면 다음 명령을 사용하세요:
+
+| 작업 | CLI 명령어 |
+|------|-----------|
+| 파일 끝에 내용 추가 | `obsidian append vault=NAME path="PATH" content="TEXT"` |
+| 파일 앞에 내용 추가 | `obsidian prepend vault=NAME path="PATH" content="TEXT"` |
+| 프론트매터 속성 수정 | `obsidian property:set vault=NAME path="PATH" name="KEY" value="VALUE" type=text` |
+| 전체 내용 교체 | `obsidian create vault=NAME path="PATH" overwrite content="NEW_CONTENT"` |
+| 텍스트 검색 | `obsidian search vault=NAME query="TEXT" path="FOLDER"` (검색 시 `path=` 사용, `folder=` 아님) |
+
+> **주의**: `search` 명령에서 폴더 범위를 지정할 때는 `path=` 파라미터를 사용합니다. `folder=`는 `files`, `folders` 명령에서만 사용됩니다.
+
 ## 설정
 
 이 plugin은 Obsidian의 기본 CLI와 함께 동작합니다. 주요 설정은 다음 위치에 저장됩니다:

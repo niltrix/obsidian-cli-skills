@@ -42,15 +42,21 @@ $OBS search vault=VAULT_NAME query="SEARCH_QUERY" path="AI-Projects"
 $OBS search vault=VAULT_NAME query="SEARCH_QUERY" path="AI-Projects/PROJECT_NAME"
 ```
 
-**Context search (with matching lines - preferred for detailed results):**
-```bash
-$OBS search:context vault=VAULT_NAME query="SEARCH_QUERY" path="AI-Projects/PROJECT_NAME"
-```
-
 **JSON output for structured parsing:**
 ```bash
 $OBS search vault=VAULT_NAME query="SEARCH_QUERY" path="AI-Projects" format=json
 ```
+
+**Read matched files for context** (preferred over `search:context` which may return empty):
+```bash
+# First search for matching files
+$OBS search vault=VAULT_NAME query="SEARCH_QUERY" path="AI-Projects/PROJECT_NAME"
+
+# Then read each matched file for context
+$OBS read vault=VAULT_NAME path="MATCHED_FILE_PATH"
+```
+
+> **Note**: `search:context` exists but may not return results reliably. Prefer using `search` to find matching files, then `read` each file for full context.
 
 ### Step 3: Filter by Type (if type specified)
 

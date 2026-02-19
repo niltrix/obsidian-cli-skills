@@ -29,17 +29,37 @@ When no specific project is given, show overview of all projects:
 OBS="/Applications/Obsidian.app/Contents/MacOS/obsidian"
 
 # Check each known vault for AI-Projects folder
+# Use "folders" to list project subfolders; fall back to "files" if folders returns empty
 for VAULT in Personal medit-public medit; do
   echo "=== $VAULT ==="
-  $OBS folders vault=$VAULT folder="AI-Projects" 2>/dev/null || echo "No AI-Projects folder"
+  PROJECTS=$($OBS folders vault=$VAULT folder="AI-Projects" 2>/dev/null)
+  if [ -z "$PROJECTS" ]; then
+    # folders may return empty even if AI-Projects exists with only files
+    # Use files command as fallback to detect projects
+    FILES=$($OBS files vault=$VAULT folder="AI-Projects" 2>/dev/null)
+    if [ -z "$FILES" ]; then
+      echo "No AI-Projects folder"
+    else
+      # Extract unique project names from file paths (AI-Projects/PROJECT_NAME/...)
+      echo "$FILES" | sed 's|AI-Projects/||' | cut -d'/' -f1 | sort -u
+    fi
+  else
+    echo "$PROJECTS"
+  fi
 done
 ```
 
 Or let user choose a vault first, then list:
 
 ```bash
+# List project folders
 $OBS folders vault=VAULT_NAME folder="AI-Projects"
+
+# Fallback: extract project names from file listing
+$OBS files vault=VAULT_NAME folder="AI-Projects" | sed 's|AI-Projects/||' | cut -d'/' -f1 | sort -u
 ```
+
+> **Note**: The `folders` command lists subfolders. If a vault has no AI-Projects folder, it returns an error. If AI-Projects exists but is empty, it returns nothing. Use `files` as a fallback to detect projects from file paths.
 
 ### Step 2: For Each Project, Gather Stats
 

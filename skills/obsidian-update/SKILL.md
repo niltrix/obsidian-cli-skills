@@ -101,12 +101,17 @@ $OBS property:set vault=VAULT_NAME path="AI-Projects/PROJECT_NAME/_todo.md" name
 $OBS read vault=VAULT_NAME path="AI-Projects/PROJECT_NAME/_todo.md"
 ```
 
-**Complete a task** (read, find the task, replace checkbox):
+**Complete a task** (read, modify, rewrite with `create overwrite`):
 ```bash
 # Read current content
 $OBS read vault=VAULT_NAME path="AI-Projects/PROJECT_NAME/_todo.md"
-# Then update with the task marked as done - rewrite the full content or use search/replace approach
+
+# Rewrite the full file with the task marked as done
+# NOTE: There is no "update" CLI command. Use "create overwrite" to replace file contents.
+$OBS create vault=VAULT_NAME path="AI-Projects/PROJECT_NAME/_todo.md" overwrite content="FULL_UPDATED_CONTENT_WITH_TASK_MARKED_DONE"
 ```
+
+> **Important**: The Obsidian CLI has no `update` command. To modify existing file content beyond appending/prepending, read the file first, modify the content, then use `create` with the `overwrite` flag to replace it.
 
 ### plan
 
