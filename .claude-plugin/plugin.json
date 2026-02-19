@@ -1,0 +1,11 @@
+{
+  "name": "obsidian-skills",
+  "version": "1.0.0",
+  "description": "Obsidian CLI integration for managing project documents, session logs, and knowledge base across multiple vaults",
+  "author": {
+    "name": "bjlee"
+  },
+  "license": "MIT",
+  "keywords": ["obsidian", "documentation", "project-management", "session-logging"],
+  "skills": "./skills/"
+}

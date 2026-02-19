@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "obsidian-skills",
+  "description": "Obsidian CLI integration for managing project documents, session logs, and knowledge base",
+  "owner": {
+    "name": "bjlee"
+  },
+  "plugins": [
+    {
+      "name": "obsidian-skills",
+      "description": "Obsidian CLI integration for managing project documents, session logs, and knowledge base across multiple vaults",
+      "version": "1.0.0",
+      "author": {
+        "name": "bjlee"
+      },
+      "source": "./",
+      "category": "productivity",
+      "tags": ["obsidian", "documentation", "project-management", "session-logging"]
+    }
+  ]
+}
