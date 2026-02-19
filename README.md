@@ -1,8 +1,8 @@
 # obsidian-skills
 
-Obsidian CLI를 통합하여 여러 vault에 걸쳐 프로젝트 문서, 세션 로그, 지식 베이스를 관리하는 Claude Code plugin입니다. 작업 세션을 추적하고, 프로젝트 컨텍스트를 유지하며, Claude 대화에서 vault 문서를 직접 참조할 수 있습니다.
+Obsidian CLI를 통합하여 여러 vault에 걸쳐 프로젝트 문서, 세션 로그, 지식 베이스를 관리하고, 범용 vault 작업(파일/폴더 CRUD, 태그, 북마크, 플러그인, 템플릿, 데일리 노트 등)을 수행하는 Claude Code plugin입니다. 작업 세션을 추적하고, 프로젝트 컨텍스트를 유지하며, Claude 대화에서 vault 문서를 직접 참조할 수 있습니다.
 
-**버전:** 1.0.0
+**버전:** 1.1.0
 **작성자:** bjlee
 **라이선스:** MIT
 **카테고리:** 생산성
@@ -464,6 +464,19 @@ vault에서 전체 컨텍스트를 불러옵니다. 다음 내용을 즉시 확�
 ```
 
 관련 결정 사항, 세션 노트, 계획을 찾습니다.
+
+### Vault 관리 작업
+
+범용 CLI 스킬로 다양한 vault 작업을 수행합니다:
+
+```
+/obsidian-skills:obsidian-cli 태그 목록 보여줘
+/obsidian-skills:obsidian-cli 데일리 노트에 "회의 메모: API 설계 확정" 추가해줘
+/obsidian-skills:obsidian-cli "회의록/2026-02-19.md" 노트 만들어줘
+/obsidian-skills:obsidian-cli 고아 노트 찾아줘
+```
+
+파일 생성, 태그 조회, 링크 분석, 플러그인 관리 등 Obsidian CLI가 지원하는 모든 작업을 자연어로 요청할 수 있습니다.
 
 ### Vault 내용 참조
 
