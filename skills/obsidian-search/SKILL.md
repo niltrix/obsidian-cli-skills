@@ -1,7 +1,6 @@
 ---
 name: obsidian-search
 description: Search project documents in Obsidian vault. Find content across sessions, plans, decisions, and notes. Use when user says "obsidian search", "search in obsidian", "find in obsidian", "search project docs", "search notes".
-version: 1.0.0
 ---
 
 # Obsidian Document Search

@@ -1,7 +1,6 @@
 ---
 name: obsidian-update
 description: Update project documents in Obsidian. Manage overview, architecture, decisions, todo, and plans. Use when user says "obsidian update", "update obsidian docs", "update project docs", "add decision", "update architecture", "update todo", "add plan".
-version: 1.0.0
 ---
 
 # Obsidian Document Update

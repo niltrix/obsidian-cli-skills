@@ -1,7 +1,6 @@
 ---
 name: obsidian-ref
 description: Reference Obsidian vault documents in prompts. Read and inject vault file content into conversation context. Use when user mentions "@obsidian:", "obsidian ref", "get from obsidian", "obsidian 에서 가져와", or references vault files with @obsidian:path syntax.
-version: 1.0.0
 ---
 
 # Obsidian Document Reference

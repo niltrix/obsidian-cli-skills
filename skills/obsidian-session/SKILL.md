@@ -1,7 +1,6 @@
 ---
 name: obsidian-session
 description: Manage work sessions in Obsidian. Start or end a session to track work progress. Use when user says "obsidian session start", "obsidian session end", "start session", "end session", "log session", or wants to track a work session in Obsidian.
-version: 1.0.0
 ---
 
 # Obsidian Session Management

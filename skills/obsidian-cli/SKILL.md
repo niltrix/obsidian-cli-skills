@@ -1,7 +1,6 @@
 ---
 name: obsidian-cli
 description: General-purpose Obsidian CLI skill for vault management. Use when user says "obsidian cli", "obsidian 에서", "vault 에서", "노트 만들어", "노트 읽어", "파일 이동", "태그 목록", "obsidian 명령", "북마크", "플러그인 관리", "데일리 노트", "템플릿".
-version: 1.0.0
 ---
 
 # Obsidian CLI - General Purpose Vault Management

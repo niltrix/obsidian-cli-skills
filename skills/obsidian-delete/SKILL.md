@@ -1,7 +1,6 @@
 ---
 name: obsidian-delete
 description: Delete a project from Obsidian vault. Removes all project files and folders. Use when user says "obsidian delete", "delete project", "remove project from obsidian", "프로젝트 삭제".
-version: 1.0.0
 ---
 
 # Obsidian Project Deletion

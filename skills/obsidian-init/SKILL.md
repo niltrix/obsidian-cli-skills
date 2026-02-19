@@ -1,7 +1,6 @@
 ---
 name: obsidian-init
 description: Initialize a new project in Obsidian vault. Use when starting a new project, setting up project documentation, or when user says "obsidian init", "init project in obsidian", "create obsidian project".
-version: 1.0.0
 ---
 
 # Obsidian Project Initialization

@@ -1,7 +1,6 @@
 ---
 name: obsidian-status
 description: Show project status and overview from Obsidian. Lists projects, session counts, TODO status, and recent activity. Use when user says "obsidian status", "project status", "show projects", "what projects do I have", "obsidian overview".
-version: 1.0.0
 ---
 
 # Obsidian Project Status

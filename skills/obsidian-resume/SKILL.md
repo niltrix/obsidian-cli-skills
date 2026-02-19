@@ -1,7 +1,6 @@
 ---
 name: obsidian-resume
 description: Resume a project by loading context from Obsidian. Reads project overview, recent sessions, TODO, and decisions to restore working context. Use when user says "obsidian resume", "resume project", "load project context", "continue project", "pick up where I left off".
-version: 1.0.0
 ---
 
 # Obsidian Project Resume
