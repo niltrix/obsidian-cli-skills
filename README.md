@@ -9,10 +9,11 @@ Obsidian CLI를 통합하여 여러 vault에 걸쳐 프로젝트 문서, 세션 
 
 ## 개요
 
-obsidian-skills는 Obsidian을 Claude Code 워크플로우의 프로젝트 관리 및 문서화 허브로 만들어주는 7가지 강력한 skill을 제공합니다. 구조화된 템플릿으로 프로젝트를 초기화하고, 상세한 로그로 작업 세션을 추적하며, 프로젝트 문서를 업데이트하고, 이전에 작업하던 내용을 이어 시작하고, vault 파일을 프롬프트에 직접 참조할 수 있습니다.
+obsidian-skills는 Obsidian을 Claude Code 워크플로우의 프로젝트 관리 및 문서화 허브로 만들어주는 9가지 강력한 skill을 제공합니다. 구조화된 템플릿으로 프로젝트를 초기화하고, 상세한 로그로 작업 세션을 추적하며, 프로젝트 문서를 업데이트하고, 이전에 작업하던 내용을 이어 시작하고, vault 파일을 프롬프트에 직접 참조할 수 있습니다. 또한 범용 CLI 스킬을 통해 파일 CRUD, 태그, 북마크, 플러그인, 템플릿, 데일리 노트 등 Obsidian vault의 모든 작업을 수행할 수 있습니다.
 
 ### 주요 기능
 
+- **범용 Vault 관리** - Obsidian CLI 전체 명령어를 활용한 파일/폴더/태그/플러그인/템플릿 등 관리
 - **프로젝트 초기화** - 구조화된 폴더와 템플릿 문서로 새 프로젝트를 설정합니다
 - **세션 추적** - 자동 로깅과 컨텍스트 보존으로 작업 세션을 시작하고 종료합니다
 - **문서 관리** - 프로젝트 개요, 아키텍처, 결정 사항, TODO, 계획을 업데이트합니다
@@ -20,6 +21,7 @@ obsidian-skills는 Obsidian을 Claude Code 워크플로우의 프로젝트 관�
 - **상태 모니터링** - 프로젝트 개요, 세션 수, TODO 진행 상황을 확인합니다
 - **문서 검색** - 필터링 옵션을 사용해 모든 프로젝트 문서를 검색합니다
 - **Vault 참조** - `@obsidian:` 문법으로 vault 파일 내용을 프롬프트에 직접 주입합니다
+- **프로젝트 삭제** - vault에서 프로젝트 전체를 안전하게 삭제합니다
 
 ## 사전 요구사항
 
@@ -342,6 +344,61 @@ Work vault에서 coding.md를 읽어 ./rules.md에 씁니다
 @obsidian:/templates/config.md @obsidian:/templates/setup.md
 기본 vault에서 두 파일을 모두 읽어 표시합니다
 ```
+
+### 8. obsidian-cli
+
+Obsidian CLI 전체 명령어를 활용할 수 있는 범용 스킬입니다. 사용자의 자연어 요청을 적절한 CLI 명령어로 변환하여 실행합니다.
+
+**트리거:** "obsidian cli", "obsidian 에서", "vault 에서", "노트 만들어", "노트 읽어", "파일 이동", "태그 목록", "obsidian 명령"
+
+**사용법:**
+
+```
+/obsidian-skills:obsidian-cli 노트 만들어줘 "회의록/2026-02-19.md"
+/obsidian-skills:obsidian-cli 태그 목록 보여줘
+/obsidian-skills:obsidian-cli 데일리 노트에 추가해줘 "오늘 할 일: 코드 리뷰"
+```
+
+**지원 카테고리:**
+
+| 카테고리 | CLI 명령어 | 설명 |
+|---------|-----------|------|
+| **Vault 관리** | `vaults`, `vault`, `reload` | 볼트 목록, 정보, 리로드 |
+| **파일 CRUD** | `create`, `read`, `append`, `prepend`, `delete`, `move`, `rename` | 파일 생성/읽기/수정/삭제/이동/이름변경 |
+| **폴더** | `folders`, `folder`, `files` | 폴더 목록, 정보, 파일 목록 |
+| **검색** | `search`, `search:context`, `search:open` | 텍스트 검색 |
+| **속성** | `properties`, `property:read`, `property:set`, `property:remove` | frontmatter 관리 |
+| **태그** | `tags`, `tag` | 태그 목록, 태그 정보 |
+| **링크** | `links`, `backlinks`, `orphans`, `deadends`, `unresolved` | 링크 분석 |
+| **작업(Tasks)** | `tasks`, `task` | 작업 목록, 상태 변경 |
+| **북마크** | `bookmark`, `bookmarks` | 북마크 관리 |
+| **데일리 노트** | `daily`, `daily:read`, `daily:append`, `daily:prepend`, `daily:path` | 데일리 노트 |
+| **템플릿** | `templates`, `template:read`, `template:insert` | 템플릿 |
+| **플러그인** | `plugins`, `plugin:enable`, `plugin:disable`, `plugin:install`, `plugin:uninstall` | 플러그인 관리 |
+| **테마** | `themes`, `theme`, `theme:set`, `theme:install`, `theme:uninstall` | 테마 관리 |
+| **히스토리** | `history`, `history:read`, `history:restore` | 파일 버전 이력 |
+| **워크스페이스** | `workspaces`, `workspace:load`, `workspace:save`, `workspace:delete` | 워크스페이스 |
+| **기타** | `aliases`, `outline`, `wordcount`, `open`, `random` | 유틸리티 |
+
+> **참고**: 파괴적 작업(delete, overwrite, permanent, uninstall, restore)은 실행 전 반드시 사용자 확인을 거칩니다.
+
+### 9. obsidian-delete
+
+Obsidian vault에서 프로젝트 전체를 안전하게 삭제합니다. AI-Projects 폴더 내의 프로젝트 파일과 빈 폴더를 모두 제거합니다.
+
+**트리거:** "obsidian delete", "delete project", "remove project from obsidian", "프로젝트 삭제"
+
+**사용법:**
+
+```
+/obsidian-skills:obsidian-delete my-project
+```
+
+**수행 작업:**
+- 프로젝트 내 모든 파일 목록을 보여주고 삭제 확인을 요청합니다
+- 기본적으로 Obsidian 휴지통으로 이동합니다 (permanent 플래그로 영구 삭제 가능)
+- 파일 삭제 후 빈 폴더를 정리합니다
+- 삭제 완료 후 결과를 확인합니다
 
 ## 일반적인 워크플로우
 
@@ -690,6 +747,12 @@ MIT 라이선스. 자세한 내용은 LICENSE 파일을 참고하세요.
 이슈, 질문, 기능 요청은 GitHub 저장소에서 이슈를 열어주세요.
 
 ## 변경 이력
+
+### v1.1.0
+
+범용 vault 관리 스킬 추가:
+- obsidian-cli - Obsidian CLI 전체 명령어를 활용한 범용 vault 관리
+- obsidian-delete - 프로젝트 안전 삭제
 
 ### v1.0.0
 
