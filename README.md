@@ -38,7 +38,7 @@ Obsidian CLI 접근 가능 여부를 확인하세요:
 ## 설치
 
 ```bash
-claude plugin marketplace add github:niltrix/obsidian-cli-skills
+claude plugin marketplace add github:bjlee2024/obsidian-cli-skills
 claude plugin install obsidian-skills
 ```
 
